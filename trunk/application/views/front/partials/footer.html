@@ -1,0 +1,9 @@
+  </body>
+  {if isset($layout_includes['js']) && $layout_includes['js'] > 0}
+   	{foreach $layout_includes['js'] as $js}
+	   	{if ! isset($js['options']) || $js['options'] == 'footer'}
+	   	<script href="{$js['file']}"></script>
+	   	{/if}
+   	{/foreach}
+ 	{/if}
+</html>

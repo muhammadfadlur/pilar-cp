@@ -1,0 +1,20 @@
+<html>
+  <head>    
+  	<title>{$layout_title|default:''}{site_title()}</title>
+   	<meta name="description" content="{$meta_desc}">
+
+   	{if isset($layout_includes['css']) && $layout_includes['css'] > 0}
+	   	{foreach $layout_includes['css'] as $css}
+	   	<link rel="stylesheet" href="{$css['file']}">
+	   	{/foreach}
+   	{/if}
+
+   	{if isset($layout_includes['js']) && $layout_includes['js'] > 0}
+	   	{foreach $layout_includes['js'] as $js}
+		   	{if isset($js['options']) && $js['options'] == 'header'}
+		   	<script href="{$js['file']}"></script>
+		   	{/if}
+	   	{/foreach}
+   	{/if}
+  </head>
+  <body>

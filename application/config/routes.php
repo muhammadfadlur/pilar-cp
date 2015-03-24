@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller']	= 'home';
+$route['default_controller']	= 'admin';
 $route['404_override'] 				= 'error404';
 // autentikasi
 $route['login'] 							= 'auth/login';

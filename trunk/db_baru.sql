@@ -21,9 +21,11 @@ CREATE TABLE `album` (
   `album` varchar(100) DEFAULT NULL,
   `slug` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_album`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `album` */
+
+insert  into `album`(`id_album`,`album`,`slug`) values (1,'Kegiatanku','kegiatanku');
 
 /*Table structure for table `berita` */
 
@@ -36,9 +38,11 @@ CREATE TABLE `berita` (
   `slug` varchar(100) DEFAULT NULL,
   `keyword` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id_berita`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `berita` */
+
+insert  into `berita`(`id_berita`,`judul`,`konten`,`slug`,`keyword`) values (1,'Chipset Intel Terbaru segera diluncurkan lagi','ini adalah coba-coba','chipset-intel-terbaru-segera-diluncurkan-lagi','intel, chipset');
 
 /*Table structure for table `gallery` */
 
@@ -69,9 +73,11 @@ CREATE TABLE `jadwal` (
   `slug` varchar(100) DEFAULT NULL,
   `keyword` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_jadwal`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `jadwal` */
+
+insert  into `jadwal`(`id_jadwal`,`nama_kegiatan`,`tgl_mulai`,`tgl_selesai`,`konten`,`slug`,`keyword`) values (1,'Sangat Bagus Pelatihannya','2015-03-05','2015-03-10','Sangat Bagus sekali','',NULL),(2,'Pelatihan Seni Modern','2015-03-04','2015-03-27','sangat menarik sekali','pelatihan-seni',NULL);
 
 /*Table structure for table `klien` */
 
@@ -83,9 +89,11 @@ CREATE TABLE `klien` (
   `gambar` varchar(100) DEFAULT NULL,
   `konten` text,
   PRIMARY KEY (`id_klien`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `klien` */
+
+insert  into `klien`(`id_klien`,`nama_klien`,`gambar`,`konten`) values (1,'CV Aswaja IT','aswaja-it-developer.jpg','sangat baik sekali');
 
 /*Table structure for table `layanan` */
 
@@ -98,9 +106,11 @@ CREATE TABLE `layanan` (
   `deskripsi` text,
   `slug` varchar(75) DEFAULT NULL,
   PRIMARY KEY (`id_layanan`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `layanan` */
+
+insert  into `layanan`(`id_layanan`,`layanan`,`gambar`,`deskripsi`,`slug`) values (1,'Layanan Salah','halal-nu1.jpg','bagus sekali dan sangat memuaskan','layanan-salah'),(3,'Layanan Baru','Al_Bahjah.png','sangat memuaskan sekali','layanan-baru');
 
 /*Table structure for table `master_barang` */
 
@@ -146,9 +156,11 @@ CREATE TABLE `profil` (
   `keyword` varchar(200) DEFAULT NULL,
   `urutan` int(4) DEFAULT NULL,
   PRIMARY KEY (`id_profil`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `profil` */
+
+insert  into `profil`(`id_profil`,`judul`,`konten`,`slug`,`keyword`,`urutan`) values (1,'Profilku lagi','sangat baik sekali dan bagus','profilku-lagi','profil,aku',1);
 
 /*Table structure for table `rc_groups` */
 
@@ -208,11 +220,11 @@ CREATE TABLE `rc_permissions` (
   KEY `role_id` (`role_id`),
   CONSTRAINT `rc_permissions_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `rc_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `rc_permissions_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `rc_roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=178 DEFAULT CHARSET=utf8;
 
 /*Data for the table `rc_permissions` */
 
-insert  into `rc_permissions`(`id`,`group_id`,`role_id`,`rule`) values (30,3,45,'0100'),(31,3,46,'0100'),(32,3,47,'0100'),(33,3,48,'0100'),(34,3,49,'0100'),(35,3,50,'0100'),(36,3,41,'1111'),(37,3,51,'1111'),(46,1,45,'0100'),(47,1,46,'0100'),(48,1,47,'0100'),(49,1,48,'0100'),(50,1,49,'0100'),(51,1,50,'0100'),(52,1,41,'1111'),(53,1,51,'1111'),(54,2,45,'0100'),(55,2,46,'0100'),(56,2,47,'0100'),(57,2,48,'0100'),(58,2,49,'0100'),(59,2,50,'0100'),(60,2,41,'1111');
+insert  into `rc_permissions`(`id`,`group_id`,`role_id`,`rule`) values (46,1,45,'0100'),(47,1,46,'0100'),(48,1,47,'0100'),(49,1,48,'0100'),(50,1,49,'0100'),(51,1,50,'0100'),(52,1,41,'1111'),(53,1,51,'1111'),(54,2,45,'0100'),(55,2,46,'0100'),(56,2,47,'0100'),(57,2,48,'0100'),(58,2,49,'0100'),(59,2,50,'0100'),(60,2,41,'1111'),(161,3,47,'0100'),(162,3,48,'0100'),(163,3,49,'0100'),(164,3,50,'0100'),(165,3,45,'0100'),(166,3,46,'0100'),(167,3,54,'1111'),(168,3,55,'1111'),(169,3,56,'1111'),(170,3,57,'1111'),(171,3,41,'1111'),(172,3,58,'1111'),(173,3,51,'1111'),(174,3,59,'1111'),(175,3,52,'1111'),(176,3,60,'1111'),(177,3,53,'1111');
 
 /*Table structure for table `rc_roles` */
 
@@ -229,11 +241,11 @@ CREATE TABLE `rc_roles` (
   UNIQUE KEY `url` (`url`),
   KEY `category_id` (`category_id`),
   CONSTRAINT `rc_roles_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `rc_roles_category` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
 
 /*Data for the table `rc_roles` */
 
-insert  into `rc_roles`(`id`,`category_id`,`name`,`url`,`desc`,`parent`) values (41,16,'Export, Validasi, Paging','master_barang','Master Data Barang','0'),(45,10,'Forms','forms','Desain form general','0'),(46,10,'Radio Checkboxes','radio_checks','Desain Radio Button dan Checkbox','0'),(47,10,'Buttons','buttons','Desain berbagai macam tombol','0'),(48,10,'Tables','tables','Desain berbagai macam tabel','0'),(49,10,'Icons','icons','Desain berbagai macam ikon','0'),(50,10,'Designs','designs','Variety of design','1'),(51,16,'Ajax','master_pesan','Contoh CRUD menggunakan Ajax','0');
+insert  into `rc_roles`(`id`,`category_id`,`name`,`url`,`desc`,`parent`) values (41,16,'Export, Validasi, Paging','master_barang','Master Data Barang','0'),(45,10,'Forms','forms','Desain form general','0'),(46,10,'Radio Checkboxes','radio_checks','Desain Radio Button dan Checkbox','0'),(47,10,'Buttons','buttons','Desain berbagai macam tombol','0'),(48,10,'Tables','tables','Desain berbagai macam tabel','0'),(49,10,'Icons','icons','Desain berbagai macam ikon','0'),(50,10,'Designs','designs','Variety of design','1'),(51,16,'Ajax','master_pesan','Contoh CRUD menggunakan Ajax','0'),(52,16,'Jadwal','admin_jadwal','Master Jadwal','0'),(53,16,'Layanan','admin_layanan','Menu Layanan','0'),(54,16,'Klien','admin_klien','','0'),(55,16,'Slider','admin_slider','','0'),(56,16,'Album','admin_album','Master Album','0'),(57,16,'Gallery','admin_gallery','Gallery Foto','0'),(58,16,'Berita','admin_berita','Berita','0'),(59,16,'Profil','admin_profil','Profil','0'),(60,16,'Sub Layanan','admin_sub_layanan','Sub Layanan','0');
 
 /*Table structure for table `rc_roles_category` */
 
@@ -278,7 +290,7 @@ CREATE TABLE `rc_users` (
 
 /*Data for the table `rc_users` */
 
-insert  into `rc_users`(`id`,`first_name`,`ip_address`,`last_name`,`username`,`password`,`salt`,`email`,`activation_code`,`forgotten_password_code`,`forgotten_password_time`,`remember_code`,`created_on`,`last_login`,`active`,`company`,`phone`) values (1,'Khoiruddin','127.0.0.1','Khoiruddin','super','$2y$08$toHLx3wJBs57J8EalFFXoep4A.JVMCJb4JCn1jHySQ4HZw4FkkPSG','','muhammad@khoiruddin.com',NULL,'kNx6Lnfs7271YD56IpdRme0c8f544add9f05c491',1421251700,NULL,1268889823,1423498279,1,'-','-'),(25,'Abid Fauzi','127.0.0.1','Abid','admin','$2y$08$XuJOE22ymTf2EOtYFMhiPuKu99Fq4N5.zY2.m/4mwIS9kkAEODBom',NULL,'abid@fauzi.com',NULL,NULL,NULL,NULL,1421245814,1426082963,1,'-','-'),(27,'Fadlurrahman','127.0.0.1','Fadlur','member','$2y$08$vShPnVWPU8A10O8jIObCnuCdvyG4j7OHi9/d0UNsU5b71gxMg.3q.',NULL,'fadlur@fadlur.com',NULL,NULL,NULL,NULL,1422287134,1422978608,1,'-','-');
+insert  into `rc_users`(`id`,`first_name`,`ip_address`,`last_name`,`username`,`password`,`salt`,`email`,`activation_code`,`forgotten_password_code`,`forgotten_password_time`,`remember_code`,`created_on`,`last_login`,`active`,`company`,`phone`) values (1,'Khoiruddin','127.0.0.1','Khoiruddin','super','$2y$08$toHLx3wJBs57J8EalFFXoep4A.JVMCJb4JCn1jHySQ4HZw4FkkPSG','','muhammad@khoiruddin.com',NULL,'kNx6Lnfs7271YD56IpdRme0c8f544add9f05c491',1421251700,NULL,1268889823,1427235403,1,'-','-'),(25,'Abid Fauzi','127.0.0.1','Abid','admin','$2y$08$XuJOE22ymTf2EOtYFMhiPuKu99Fq4N5.zY2.m/4mwIS9kkAEODBom',NULL,'abid@fauzi.com',NULL,NULL,NULL,NULL,1421245814,1426082963,1,'-','-'),(27,'Fadlurrahman','127.0.0.1','Fadlur','member','$2y$08$vShPnVWPU8A10O8jIObCnuCdvyG4j7OHi9/d0UNsU5b71gxMg.3q.',NULL,'fadlur@fadlur.com',NULL,NULL,NULL,NULL,1422287134,1422978608,1,'-','-');
 
 /*Table structure for table `rc_users_groups` */
 
@@ -309,9 +321,11 @@ CREATE TABLE `slider` (
   `judul` varchar(50) DEFAULT NULL,
   `gambar` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_slider`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `slider` */
+
+insert  into `slider`(`id_slider`,`judul`,`gambar`) values (1,'Layananku Bagus','aswaja-it-developer.jpg');
 
 /*Table structure for table `sub_layanan` */
 
@@ -326,9 +340,11 @@ CREATE TABLE `sub_layanan` (
   PRIMARY KEY (`id_sub_layanan`),
   KEY `id_layanan` (`id_layanan`),
   CONSTRAINT `sub_layanan_ibfk_1` FOREIGN KEY (`id_layanan`) REFERENCES `layanan` (`id_layanan`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `sub_layanan` */
+
+insert  into `sub_layanan`(`id_sub_layanan`,`id_layanan`,`judul`,`konten`,`slug`) values (1,3,'Layanan Kampus baru','mencoba','layanan-kampus-baru');
 
 /*Table structure for table `testimoni` */
 

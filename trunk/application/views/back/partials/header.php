@@ -34,7 +34,9 @@ if (!$this->ion_auth->logged_in()){
 
         <script src="<?php echo base_url('themes/general/js/jquery-2.1.3.min.js');?>"></script>
         <script src="<?php echo base_url('themes/back/bundle/filestyle/filestyle.min.js');?>"></script>
-        
+        <script src="<?php echo base_url()?>themes/front/js/plugins/datepicker/bootstrap-datepicker.js"></script>
+		<script src="<?php echo base_url()?>themes/front/js/plugins/datepicker/bootstrap-datepicker.id.js"></script>
+		<link href="<?php echo base_url()?>themes/front/css/plugins/datepicker/dp3.css" rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
